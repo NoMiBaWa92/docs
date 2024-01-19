@@ -23,11 +23,11 @@ on:
       PR_NUMBER:
         description: 'PR Number'
         type: string
-        required: true
+        required:true
       COMMIT_REF:
         description: 'The commit SHA to build'
         type: string
-        required: true
+        required:true
 
 permissions:
   contents: read
@@ -36,7 +36,7 @@ permissions:
 # This allows one deploy workflow to interrupt another
 concurrency:
   group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
-  cancel-in-progress: true
+  cancel-in-progress:true
 
 jobs:
   build-and-deploy-azure-preview:
